@@ -5,12 +5,12 @@
   
   <title>eclipse下maven配置及创建maven项目 | 紫年</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="win7下安装eclipse初始化安装条件环境 win7 eclipse-jee-oxygen maven-3.5.2 tomcat-8.5.23   eclipse准备https://www.eclipse.org/downloads/eclipse-packages/选择版本下载解压到常用存放软件文件夹，如：为了方便以后使用，亦可右键-&amp;gt;发送到桌面快捷方式。 maven准备http://">
+  <meta name="description" content="win7下安装eclipse初始化安装条件环境 win7 eclipse-jee-oxygen maven-3.5.2 tomcat-8.5.23">
 <meta property="og:type" content="article">
 <meta property="og:title" content="eclipse下maven配置及创建maven项目">
 <meta property="og:url" content="https://zixingly.github.io/2017/11/17/eclipse下maven配置及创建maven项目/index.html">
 <meta property="og:site_name" content="紫年">
-<meta property="og:description" content="win7下安装eclipse初始化安装条件环境 win7 eclipse-jee-oxygen maven-3.5.2 tomcat-8.5.23   eclipse准备https://www.eclipse.org/downloads/eclipse-packages/选择版本下载解压到常用存放软件文件夹，如：为了方便以后使用，亦可右键-&amp;gt;发送到桌面快捷方式。 maven准备http://">
+<meta property="og:description" content="win7下安装eclipse初始化安装条件环境 win7 eclipse-jee-oxygen maven-3.5.2 tomcat-8.5.23">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7672800-23f3570ee432134a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7672800-35ca002bab6c7ec3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -44,10 +44,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7672800-892813f267322166.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7672800-d8da6b2e07679aa0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/7672800-66d29baa64a16839.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-12-16T12:56:18.911Z">
+<meta property="og:updated_time" content="2017-12-16T13:03:52.905Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="eclipse下maven配置及创建maven项目">
-<meta name="twitter:description" content="win7下安装eclipse初始化安装条件环境 win7 eclipse-jee-oxygen maven-3.5.2 tomcat-8.5.23   eclipse准备https://www.eclipse.org/downloads/eclipse-packages/选择版本下载解压到常用存放软件文件夹，如：为了方便以后使用，亦可右键-&amp;gt;发送到桌面快捷方式。 maven准备http://">
+<meta name="twitter:description" content="win7下安装eclipse初始化安装条件环境 win7 eclipse-jee-oxygen maven-3.5.2 tomcat-8.5.23">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/7672800-23f3570ee432134a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="https://user.qzone.qq.com/1319589118" title="紫年" type="application/atom+xml">
@@ -127,9 +127,9 @@
 <li>win7</li>
 <li>eclipse-jee-oxygen</li>
 <li>maven-3.5.2</li>
-<li>tomcat-8.5.23</li>
+<li>tomcat-8.5.23<a id="more"></a>
+<img src="http://upload-images.jianshu.io/upload_images/7672800-23f3570ee432134a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="资源"></li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/7672800-23f3570ee432134a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="资源"></p>
 <h4 id="eclipse准备"><a href="#eclipse准备" class="headerlink" title="eclipse准备"></a>eclipse准备</h4><p><a href="https://www.eclipse.org/downloads/eclipse-packages/" target="_blank" rel="external">https://www.eclipse.org/downloads/eclipse-packages/</a><br><img src="http://upload-images.jianshu.io/upload_images/7672800-35ca002bab6c7ec3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="eclipse-package"><br>选择版本下载解压到常用存放软件文件夹，如：<img src="http://upload-images.jianshu.io/upload_images/7672800-450a4d56e1a68f8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="eclipse"><br>为了方便以后使用，亦可右键-&gt;发送到桌面快捷方式。</p>
 <h4 id="maven准备"><a href="#maven准备" class="headerlink" title="maven准备"></a>maven准备</h4><p><a href="http://maven.apache.org/download.cgi" target="_blank" rel="external">http://maven.apache.org/download.cgi</a><br><img src="http://upload-images.jianshu.io/upload_images/7672800-6216c9a5a4985553.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="maven3.5.2"><br><strong>Tips:</strong>windows下选择 *.bin.zip，linux下选择*.bin.tar.gz，src包则为源文件包可自行编译。</p>
 <h4 id="maven环境变量配置"><a href="#maven环境变量配置" class="headerlink" title="maven环境变量配置"></a>maven环境变量配置</h4><p><img src="http://upload-images.jianshu.io/upload_images/7672800-d206d3b1f8a88ca6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="maven环境变量"><br>新建用户变量 <code>MAVEN_HOME</code>变量值即 maven 安装目录。这里参考了 java环境变量的配置方法，一些教程上是 <code>MVN_HOME</code> ，当然也可以。我的理解是：无他，标记而已，区别区己，方便辩夷！之后，在系统变量PATH的变量值中追加：<code>%MAVEN_HOME%\bin;</code></p>
