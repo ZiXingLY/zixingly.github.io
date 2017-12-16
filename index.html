@@ -91,7 +91,62 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="win7下安装eclipse"><a href="#win7下安装eclipse" class="headerlink" title="win7下安装eclipse"></a>win7下安装eclipse</h2>
+        <h2 id="win7下安装eclipse"><a href="#win7下安装eclipse" class="headerlink" title="win7下安装eclipse"></a>win7下安装eclipse</h2><h2 id="初始化安装条件"><a href="#初始化安装条件" class="headerlink" title="初始化安装条件"></a>初始化安装条件</h2><h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><ul>
+<li>win7</li>
+<li>eclipse-jee-oxygen</li>
+<li>maven-3.5.2</li>
+<li>tomcat-8.5.23</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/7672800-23f3570ee432134a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="资源"></p>
+<h4 id="eclipse准备"><a href="#eclipse准备" class="headerlink" title="eclipse准备"></a>eclipse准备</h4><p><a href="https://www.eclipse.org/downloads/eclipse-packages/" target="_blank" rel="external">https://www.eclipse.org/downloads/eclipse-packages/</a><br><img src="http://upload-images.jianshu.io/upload_images/7672800-35ca002bab6c7ec3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="eclipse-package"><br>选择版本下载解压到常用存放软件文件夹，如：<img src="http://upload-images.jianshu.io/upload_images/7672800-450a4d56e1a68f8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="eclipse"><br>为了方便以后使用，亦可右键-&gt;发送到桌面快捷方式。</p>
+<h4 id="maven准备"><a href="#maven准备" class="headerlink" title="maven准备"></a>maven准备</h4><p><a href="http://maven.apache.org/download.cgi" target="_blank" rel="external">http://maven.apache.org/download.cgi</a><br><img src="http://upload-images.jianshu.io/upload_images/7672800-6216c9a5a4985553.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="maven3.5.2"><br><strong>Tips:</strong>windows下选择 *.bin.zip，linux下选择*.bin.tar.gz，src包则为源文件包可自行编译。</p>
+<h4 id="maven环境变量配置"><a href="#maven环境变量配置" class="headerlink" title="maven环境变量配置"></a>maven环境变量配置</h4><p><img src="http://upload-images.jianshu.io/upload_images/7672800-d206d3b1f8a88ca6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="maven环境变量"><br>新建用户变量 <code>MAVEN_HOME</code>变量值即 maven 安装目录。这里参考了 java环境变量的配置方法，一些教程上是 <code>MVN_HOME</code> ，当然也可以。我的理解是：无他，标记而已，区别区己，方便辩夷！之后，在系统变量PATH的变量值中追加：<code>%MAVEN_HOME%\bin;</code></p>
+<h4 id="maven-默认本地仓库的更改"><a href="#maven-默认本地仓库的更改" class="headerlink" title="maven 默认本地仓库的更改"></a>maven 默认本地仓库的更改</h4><p><em>默认情况maven仓库会放在系统盘，载入过多jar包，可能会撑爆你的系统盘奥。哈哈，当然也为了安全考虑，不至于重装系统，而丢失重要数据。</em><br>详细参见csdn大佬们：<a href="http://blog.csdn.net/wanghantong/article/details/36427433" target="_blank" rel="external">Maven详解之仓库——本地仓库、远程仓库</a><br><img src="http://upload-images.jianshu.io/upload_images/7672800-88d6a9dd0af6d27a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="maven配置"></p>
+<pre><code>&lt;localRepository&gt;C:\zi\zi-maven-repository&lt;/localRepository&gt;
+</code></pre><h4 id="阿里云maven远程仓库"><a href="#阿里云maven远程仓库" class="headerlink" title="阿里云maven远程仓库"></a>阿里云maven远程仓库</h4><p>如果你详细看了 ./conf/settings.xml，会发现默认仓库在<a href="http://my.repository.com/repo/path" target="_blank" rel="external"> http://my.repository.com/repo/path</a> 这里。种种原因，访问速度不敢恭维！不过没关系，换马云家的：</p>
+<pre><code>&lt;mirror&gt;
+    &lt;id&gt;nexus-aliyun&lt;/id&gt;
+    &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
+    &lt;name&gt;Nexus aliyun&lt;/name&gt;
+    &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;
+&lt;/mirror&gt;
+</code></pre><h4 id="eclipse下配置maven"><a href="#eclipse下配置maven" class="headerlink" title="eclipse下配置maven"></a>eclipse下配置maven</h4><p>在eclipse，Window菜单下-&gt;Preferences-&gt;Maven-&gt;Installations 添加已安装的maven<br><img src="http://upload-images.jianshu.io/upload_images/7672800-6b108a4d143ddd78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加"><br><img src="http://upload-images.jianshu.io/upload_images/7672800-52238c9cb6fd9a02.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="找到目录"><br><img src="http://upload-images.jianshu.io/upload_images/7672800-7487e8c88d3df6ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="选择"></p>
+<p>在eclipse，Window菜单下-&gt;Preferences-&gt;Maven-&gt;User Settings 导入maven配置数据，并应用：<br><img src="http://upload-images.jianshu.io/upload_images/7672800-1d99a61e26fb36af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="将配置数据导入eclipse"></p>
+<h4 id="检测远程仓库"><a href="#检测远程仓库" class="headerlink" title="检测远程仓库"></a>检测远程仓库</h4><ul>
+<li>Window -&gt; Show View -&gt;Other…<br><img src="http://upload-images.jianshu.io/upload_images/7672800-d58314d96bd836ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="show Maven Repositories"><br><img src="http://upload-images.jianshu.io/upload_images/7672800-f53731e9a0c6fe05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Repo"></li>
+<li>右键 -&gt; Rebuild Index<br>可以重建仓库索引</li>
+</ul>
+<h4 id="第一个maven项目"><a href="#第一个maven项目" class="headerlink" title="第一个maven项目"></a>第一个maven项目</h4><ul>
+<li><p>File -&gt; New -&gt; Maven Project<br><img src="http://upload-images.jianshu.io/upload_images/7672800-0ea835c226f12cf9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="new project"></p>
+</li>
+<li><p>next<br><img src="http://upload-images.jianshu.io/upload_images/7672800-8535c5bfee0af50f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="config project"></p>
+</li>
+<li>finish </li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/7672800-ad60f1e72f2fbf46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目录树"><br>这里J2SE-1.5 显示错误是maven中配置默认选项，不影响使用。当然，强迫症患者可以选择右键Build Path -&gt;Configure Build Path<br><img src="http://upload-images.jianshu.io/upload_images/7672800-abf27a3cb2819164.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="jre system library"></p>
+<ul>
+<li>双击 666<br><img src="http://upload-images.jianshu.io/upload_images/7672800-e897859851a9f2fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Configure Build Path"></li>
+<li>Apply<br><strong>接下来就是熟悉的新建包，新建类操作了</strong></li>
+<li>New -&gt; Package<br><img src="http://upload-images.jianshu.io/upload_images/7672800-e1509b56e26950d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="new package"></li>
+<li>New -&gt; Class<br><img src="http://upload-images.jianshu.io/upload_images/7672800-e75f5dd4214d18e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="newClass"></li>
+<li>创建对应的包，对应的类时maven自动生成了目录树<br><img src="http://upload-images.jianshu.io/upload_images/7672800-38af262918c22c19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="HelloWorld.java"></li>
+<li>运行<img src="http://upload-images.jianshu.io/upload_images/7672800-e43413d51057d424.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="HelloWorld_run"><br>看到Console 控制台成功输出 hello world ！<h4 id="maven-web项目"><a href="#maven-web项目" class="headerlink" title="maven web项目"></a>maven web项目</h4></li>
+<li>New -&gt; Maven Project<br><img src="http://upload-images.jianshu.io/upload_images/7672800-a0d0663a31f51787.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Maven Project"></li>
+<li>Next<br><img src="http://upload-images.jianshu.io/upload_images/7672800-233342d410a848a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="maven-archetype-webapp"></li>
+<li>Next<img src="http://upload-images.jianshu.io/upload_images/7672800-a82883111de9036b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Artifact Id"></li>
+<li>Finish<br><img src="http://upload-images.jianshu.io/upload_images/7672800-5e7f4edf6d7056b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="no found javax.servlet.http.Httpservlet"></li>
+<li>缺少必要类 javax.servlet.http.Httpservlet 我<br>们可以通过 tomcat 目录下 jar 包导入。<h4 id="tomcat-准备"><a href="#tomcat-准备" class="headerlink" title="tomcat 准备"></a>tomcat 准备</h4><a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="external">https://tomcat.apache.org/download-80.cgi</a><br><img src="http://upload-images.jianshu.io/upload_images/7672800-a10bef781dbf6282.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tomcat8.5"></li>
+<li>解压到工作目录<h4 id="tomcat-环境变量设置"><a href="#tomcat-环境变量设置" class="headerlink" title="tomcat 环境变量设置"></a>tomcat 环境变量设置</h4><img src="http://upload-images.jianshu.io/upload_images/7672800-f12c96981b64e878.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="user path"></li>
+<li>用户变量<br>变量名：<code>CATALINA_HOME</code><br>变量值：安装目录</li>
+<li>系统变量<br>变量名：<code>Path</code><br>追加变量值：<code>%CATALINA_HOME%\bin;%CATALINA_HOME%\lib;</code></li>
+<li>应用配置。<h4 id="eclipse中配置tomcat"><a href="#eclipse中配置tomcat" class="headerlink" title="eclipse中配置tomcat"></a>eclipse中配置tomcat</h4><img src="http://upload-images.jianshu.io/upload_images/7672800-0a4ad0078e466e68.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="eclipse tomcat"></li>
+<li>解决缺少 Httpservlet 类问题<br><img src="http://upload-images.jianshu.io/upload_images/7672800-e1be35708452bfd4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加库"></li>
+<li>Finish<br><img src="http://upload-images.jianshu.io/upload_images/7672800-892813f267322166.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="加载依赖到项目库"></li>
+<li>Order and Except -&gt; 勾选 Tomcat v8.5 -&gt; Apply<br><img src="http://upload-images.jianshu.io/upload_images/7672800-d8da6b2e07679aa0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导入成功"></li>
+<li>index.jsp前边小红叉已经消失，尽情你的jee之旅吧<br><img src="http://upload-images.jianshu.io/upload_images/7672800-66d29baa64a16839.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="error 修复"><h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4></li>
+</ul>
+<p><a href="http://www.cnblogs.com/tangshengwei/p/6341462.html" target="_blank" rel="external">Eclipse上Maven环境配置使用 (全) http://www.cnblogs.com/tangshengwei/p/6341462.html</a></p>
+
       
     </div>
     <footer class="article-footer">
